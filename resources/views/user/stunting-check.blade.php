@@ -8,27 +8,43 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     <form>
+                        {{-- Baris 1: Tanggal & Jenis Kelamin --}}
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label>Tanggal Pengukuran</label>
+                                <label class="form-label">Tanggal Pengukuran</label>
                                 <input type="date" class="form-control" required>
                             </div>
                             <div class="col-md-6">
-                                <label>Lingkar Kepala (cm)</label>
-                                <input type="number" step="0.1" class="form-control" required>
+                                <label class="form-label">Jenis Kelamin</label>
+                                <select class="form-select" required>
+                                    <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
                             </div>
                         </div>
+
+                        {{-- Baris 2: Umur & Tinggi Badan --}}
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label>Tinggi Badan (cm)</label>
-                                <input type="number" step="0.1" class="form-control" required>
+                                <label class="form-label">Umur (bulan)</label>
+                                <input type="number" class="form-control" placeholder="Contoh: 24" required>
                             </div>
                             <div class="col-md-6">
-                                <label>Berat Badan (kg)</label>
+                                <label class="form-label">Tinggi Badan (cm)</label>
                                 <input type="number" step="0.1" class="form-control" required>
                             </div>
                         </div>
 
+                        {{-- Baris 3: Berat Badan --}}
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Berat Badan (kg)</label>
+                                <input type="number" step="0.1" class="form-control" required>
+                            </div>
+                        </div>
+
+                        {{-- Upload Foto --}}
                         <div class="mb-3">
                             <label class="form-label fw-bold">Upload Foto Anak (Full Body)</label>
                             <input class="form-control" type="file" id="formFile">
@@ -42,6 +58,7 @@
                         </button>
                     </form>
 
+                    {{-- Hasil Analisis (Hidden by default) --}}
                     <div class="alert alert-success mt-4 d-none" id="resultArea">
                         <h5>Hasil Analisis:</h5>
                         <p>Status Prediksi: <strong>Normal</strong> (Akurasi: 95%)</p>
