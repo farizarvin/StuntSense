@@ -34,6 +34,7 @@
     <nav class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
                 <a href="{{ url('/') }}" class="flex items-center gap-2">
                     <div class="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,13 +44,47 @@
                     <span class="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">StuntSense</span>
                 </a>
                 
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Beranda</a>
+                    <a href="{{ url('/#tentang') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Tentang Stunting</a>
+                    <a href="{{ url('/#fitur') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Fitur</a>
+                    <a href="{{ url('/#cara-kerja') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Cara Kerja</a>
+                    <a href="{{ url('/#testimoni') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Testimoni</a>
+                </div>
+                
+                <!-- Auth Buttons -->
                 <div class="flex items-center gap-3">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                     <a href="{{ url('/login') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Masuk</a>
-                    <a href="{{ url('/register') }}" class="px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl hover:shadow-lg hover:shadow-primary-500/25 transition-all">Daftar</a>
+                    <a href="{{ url('/register') }}" class="hidden sm:inline-flex px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl hover:shadow-lg hover:shadow-primary-500/25 transition-all">Daftar</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-2 pt-2 border-t border-gray-100">
+                    <a href="{{ url('/') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors">Beranda</a>
+                    <a href="{{ url('/#tentang') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors">Tentang Stunting</a>
+                    <a href="{{ url('/#fitur') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors">Fitur</a>
+                    <a href="{{ url('/#cara-kerja') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors">Cara Kerja</a>
+                    <a href="{{ url('/#testimoni') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors">Testimoni</a>
+                    <a href="{{ url('/register') }}" class="sm:hidden mx-4 mt-2 px-5 py-2.5 text-sm font-medium text-white text-center bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl">Daftar</a>
                 </div>
             </div>
         </div>
     </nav>
+    
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 
     <!-- Main Content -->
     <main>
